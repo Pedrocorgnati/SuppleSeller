@@ -1,0 +1,6 @@
+title,price,manufacturer,inStock,mainImage,description,slug,categoryId
+Whey Protein Isolado,199.9,FitFuel,120,/whey 2.png,Whey isolado com alta pureza proteica e digestão rápida para recuperação muscular.,whey-protein-isolado,REPLACE_WITH_CATEGORY_ID
+Creatina Monohidratada,99.9,PureLift,200,/creatina 2.png,Creatina 100% monohidratada para força e potência.,creatina-monohidratada,REPLACE_WITH_CATEGORY_ID
+BCAA Recovery Stack,79.9,FitFuel,150,/bcaa 2.png,Blend 2:1:1 de aminoácidos essenciais para reduzir fadiga.,bcaa-recovery-stack,REPLACE_WITH_CATEGORY_ID
+Vitamin Complex Daily,59.9,Vitality,180,/vitamin 2.png,Complexo diário de vitaminas e minerais para imunidade.,vitamin-complex-daily,REPLACE_WITH_CATEGORY_ID
+Mass Gainer Shake,149.9,PowerLabs,90,/mass 2.png,Hipercalórico balanceado para suporte ao ganho de massa.,mass-gainer-shake,REPLACE_WITH_CATEGORY_ID

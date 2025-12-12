@@ -1,0 +1,5 @@
+title,price,manufacturer,inStock,mainImage,description,slug,categoryId
+"Whey Protein Isolado",129.99,FitFuel,80,/whey 3.png,"Whey isolado com 26g de proteína por dose, baixo carbo e enzimas digestivas.",whey-protein-isolado,whey
+"Creatina Monohidratada",79.99,PureLift,150,/creatina 3.png,"Creatina 100% monohidratada para ganho de força e potência.",creatina-monohidratada,creatina
+"BCAA Recovery Stack",69.99,FitFuel,120,/bcaa 3.png,"Aminoácidos essenciais na proporção 2:1:1 para recuperação pós-treino.",bcaa-recovery-stack,bcaa
+"Vitamin Complex Daily",49.99,Vitality,200,/vitamin 3.png,"Complexo diário de vitaminas e minerais para imunidade e energia.",vitamin-complex-daily,vitaminas

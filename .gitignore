@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.pnp.cjs
+
+# Build outputs
+.next
+.turbo
+out
+dist
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+bun-debug.log*
+
+# Env files
+.env
+.env*.local
+
+# Caches
+.eslintcache
+.parcel-cache
+.stylelintcache
+.cache
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+
+# Testing / coverage
+coverage
+.nyc_output
+
+# Vercel / deploy
+.vercel
