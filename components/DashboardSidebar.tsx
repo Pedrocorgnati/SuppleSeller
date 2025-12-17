@@ -22,51 +22,51 @@ import Link from "next/link";
 
 const DashboardSidebar = () => {
   return (
-    <div className="xl:w-[400px] bg-blue-500 h-full max-xl:w-full">
+    <div className="xl:w-[400px] bg-orange-500 h-full max-xl:w-full">
       <Link href="/admin">
-        <div className="flex gap-x-2 w-full hover:bg-blue-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
+        <div className="flex gap-x-2 w-full hover:bg-orange-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
           <MdDashboard className="text-2xl" />{" "}
           <span className="font-normal">Painel</span>
         </div>
       </Link>
       <Link href="/admin/orders">
-        <div className="flex gap-x-2 w-full hover:bg-blue-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
+        <div className="flex gap-x-2 w-full hover:bg-orange-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
           <FaBagShopping className="text-2xl" />{" "}
           <span className="font-normal">Pedidos</span>
         </div>
       </Link>
       <Link href="/admin/products">
-        <div className="flex gap-x-2 w-full hover:bg-blue-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
+        <div className="flex gap-x-2 w-full hover:bg-orange-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
           <FaTable className="text-2xl" />{" "}
           <span className="font-normal">Produtos</span>
         </div>
       </Link>
       <Link href="/admin/bulk-upload">
-        <div className="flex gap-x-2 w-full hover:bg-blue-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
+        <div className="flex gap-x-2 w-full hover:bg-orange-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
           <FaFileUpload className="text-2xl" />{" "}
           <span className="font-normal">Upload em lote</span>
         </div>
       </Link>
       <Link href="/admin/categories">
-        <div className="flex gap-x-2 w-full hover:bg-blue-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
+        <div className="flex gap-x-2 w-full hover:bg-orange-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
           <MdCategory className="text-2xl" />{" "}
           <span className="font-normal">Categorias</span>
         </div>
       </Link>
       <Link href="/admin/users">
-        <div className="flex gap-x-2 w-full hover:bg-blue-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
+        <div className="flex gap-x-2 w-full hover:bg-orange-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
           <FaRegUser className="text-2xl" />{" "}
           <span className="font-normal">Usuários</span>
         </div>
       </Link>
       <Link href="/admin/merchant">
-        <div className="flex gap-x-2 w-full hover:bg-blue-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
+        <div className="flex gap-x-2 w-full hover:bg-orange-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
           <FaStore className="text-2xl" />{" "}
           <span className="font-normal">Lojista</span>
         </div>
       </Link>
         <Link href="/admin/settings">
-            <div className="flex gap-x-2 w-full hover:bg-blue-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
+            <div className="flex gap-x-2 w-full hover:bg-orange-600 cursor-pointer items-center py-6 pl-5 text-xl text-white">
                 <FaGear className="text-2xl" />{" "}
                 <span className="font-normal">Configurações</span>
             </div>

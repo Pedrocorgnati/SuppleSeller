@@ -35,7 +35,7 @@ const SearchInput = () => {
         placeholder="Digite aqui"
         className="bg-gray-50 input input-bordered w-[70%] rounded-r-none outline-none focus:outline-none max-sm:w-full"
       />
-      <button type="submit" className="btn bg-blue-500 text-white rounded-l-none rounded-r-xl hover:bg-blue-600">
+      <button type="submit" className="btn bg-orange-500 text-white rounded-l-none rounded-r-xl hover:bg-orange-600">
         Buscar
       </button>
     </form>

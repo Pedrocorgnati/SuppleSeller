@@ -162,7 +162,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
         <h1 className="text-4xl font-bold mb-8">Upload em lote de produtos</h1>
 
         {/* Instructions */}
-        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+        <div className="bg-blue-50 border-l-4 border-orange-500 p-4 mb-6">
           <h2 className="text-lg font-semibold mb-2 text-blue-800">
             📋 Instruções
           </h2>
@@ -181,7 +181,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
         <div className="mb-6">
           <button
             onClick={downloadTemplate}
-            className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+            className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
           >
             <FaDownload /> Baixar modelo CSV
           </button>
@@ -192,7 +192,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
           <div
             className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
               dragActive
-                ? "border-blue-500 bg-blue-50"
+                ? "border-orange-500 bg-blue-50"
                 : "border-gray-300 bg-gray-50 hover:border-gray-400"
             }`}
             onDragEnter={handleDrag}
@@ -203,7 +203,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
             <FaFileUpload className="text-6xl text-gray-400 mx-auto mb-4" />
             <p className="text-lg mb-2">
               {file ? (
-                <span className="font-semibold text-blue-600">
+                <span className="font-semibold text-orange-600">
                   Selecionado: {file.name} ({(file.size / 1024).toFixed(2)} KB)
                 </span>
               ) : (
@@ -220,7 +220,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
             />
             <label
               htmlFor="file-upload"
-              className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded cursor-pointer transition-colors"
+              className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded cursor-pointer transition-colors"
             >
               Selecionar arquivo CSV
             </label>
@@ -236,7 +236,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
               className={`w-full py-4 px-6 rounded-lg font-bold text-white text-lg transition-colors ${
                 uploading
                   ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-blue-500 hover:bg-blue-600"
+                  : "bg-orange-500 hover:bg-orange-600"
               }`}
             >
               {uploading ? (
@@ -275,13 +275,13 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
           <div
             className={`border-l-4 p-6 rounded-lg ${
               uploadResult.success
-                ? "bg-green-50 border-green-500"
+                ? "bg-green-50 border-orange-500"
                 : "bg-red-50 border-red-500"
             }`}
           >
             <div className="flex items-start gap-3">
               {uploadResult.success ? (
-                <FaCheckCircle className="text-3xl text-green-500 flex-shrink-0 mt-1" />
+                <FaCheckCircle className="text-3xl text-orange-500 flex-shrink-0 mt-1" />
               ) : (
                 <FaTimesCircle className="text-3xl text-red-500 flex-shrink-0 mt-1" />
               )}
@@ -308,13 +308,13 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
                     <p className="font-semibold">Estatísticas do upload:</p>
                     <div className="grid grid-cols-3 gap-4">
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-blue-600">
+                        <p className="text-2xl font-bold text-orange-600">
                           {uploadResult.details.processed}
                         </p>
                         <p className="text-sm text-gray-600">Processados</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-green-600">
+                        <p className="text-2xl font-bold text-orange-600">
                           {uploadResult.details.successful}
                         </p>
                         <p className="text-sm text-gray-600">Com sucesso</p>

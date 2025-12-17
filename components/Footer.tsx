@@ -13,7 +13,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-500" aria-labelledby="footer-heading">
+    <footer className="bg-orange-500" aria-labelledby="footer-heading">
       <div>
         <h2 id="footer-heading" className="sr-only">
           Rodapé

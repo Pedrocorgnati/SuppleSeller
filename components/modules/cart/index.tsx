@@ -84,7 +84,7 @@ export const CartModule = () => {
                 <p className="mt-4 flex space-x-2 text-sm text-gray-700">
                   {1 ? (
                     <FaCheck
-                      className="h-5 w-5 flex-shrink-0 text-green-500"
+                      className="h-5 w-5 flex-shrink-0 text-orange-500"
                       aria-hidden="true"
                     />
                   ) : (
@@ -172,7 +172,7 @@ export const CartModule = () => {
           <div className="mt-6">
             <Link
               href="/checkout"
-              className="block flex justify-center items-center w-full uppercase bg-white px-4 py-3 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
+              className="block flex justify-center items-center w-full uppercase bg-white px-4 py-3 text-base border border-black border-gray-300 font-bold text-orange-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
             >
               <span>Finalizar compra</span>
             </Link>

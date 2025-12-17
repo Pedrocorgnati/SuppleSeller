@@ -60,7 +60,7 @@ const WishItem: React.FC<WishItemProps> = ({
       </td>
       <td>
         {stockAvailabillity > 0 ? (
-          <span className="text-green-600 font-semibold">Em estoque</span>
+          <span className="text-orange-600 font-semibold">Em estoque</span>
         ) : (
           <span className="text-red-600 font-semibold">Sem estoque</span>
         )}

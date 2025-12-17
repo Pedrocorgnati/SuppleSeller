@@ -151,13 +151,13 @@ const BulkUploadHistory = () => {
     const upperStatus = status.toUpperCase();
     switch (upperStatus) {
       case "COMPLETED":
-        return <FaCheckCircle className="text-green-500 text-xl" />;
+        return <FaCheckCircle className="text-orange-500 text-xl" />;
       case "FAILED":
         return <FaTimesCircle className="text-red-500 text-xl" />;
       case "PARTIAL":
         return <FaExclamationTriangle className="text-yellow-500 text-xl" />;
       case "PENDING":
-        return <FaClock className="text-blue-500 text-xl" />;
+        return <FaClock className="text-orange-500 text-xl" />;
       default:
         return <FaFileAlt className="text-gray-500 text-xl" />;
     }
@@ -177,7 +177,7 @@ const BulkUploadHistory = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -310,7 +310,7 @@ const BulkUploadHistory = () => {
               <p className="text-xs text-gray-500">Total</p>
             </div>
             <div className="bg-green-50 rounded p-3 text-center">
-              <p className="text-2xl font-bold text-green-600">
+              <p className="text-2xl font-bold text-orange-600">
                 {batch.successfulRecords}
               </p>
               <p className="text-xs text-gray-500">Sucesso</p>
@@ -322,7 +322,7 @@ const BulkUploadHistory = () => {
               <p className="text-xs text-gray-500">Falhou</p>
             </div>
             <div className="bg-blue-50 rounded p-3 text-center">
-              <p className="text-2xl font-bold text-blue-600">
+              <p className="text-2xl font-bold text-orange-600">
                 {batch.totalRecords > 0
                   ? Math.round(
                     (batch.successfulRecords / batch.totalRecords) * 100

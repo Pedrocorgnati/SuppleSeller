@@ -34,9 +34,9 @@ interface NotificationCardProps {
 const getTypeIcon = (type: NotificationType) => {
   switch (type) {
     case NotificationType.ORDER_UPDATE:
-      return <FaShoppingCart className="text-blue-500" />;
+      return <FaShoppingCart className="text-orange-500" />;
     case NotificationType.PAYMENT_STATUS:
-      return <FaCreditCard className="text-green-500" />;
+      return <FaCreditCard className="text-orange-500" />;
     case NotificationType.PROMOTION:
       return <FaTag className="text-purple-500" />;
     case NotificationType.SYSTEM_ALERT:
@@ -64,7 +64,7 @@ const getTypeColor = (type: NotificationType) => {
 const getPriorityBadge = (priority: NotificationPriority) => {
   const priorityStyles = {
     [NotificationPriority.LOW]: 'bg-gray-100 text-gray-600 border-gray-300',
-    [NotificationPriority.NORMAL]: 'bg-blue-100 text-blue-600 border-blue-300',
+    [NotificationPriority.NORMAL]: 'bg-blue-100 text-orange-600 border-blue-300',
     [NotificationPriority.HIGH]: 'bg-orange-100 text-orange-600 border-orange-300',
     [NotificationPriority.URGENT]: 'bg-red-100 text-red-600 border-red-300'
   };
@@ -103,7 +103,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
     <div className={`
       border rounded-lg p-4 transition-all duration-200 hover:shadow-md
       ${notification.isRead ? 'bg-white border-gray-200' : 'bg-blue-50 border-blue-200 shadow-sm'}
-      ${isSelected ? 'ring-2 ring-blue-500 border-blue-500' : ''}
+      ${isSelected ? 'ring-2 ring-orange-500 border-orange-500' : ''}
     `}>
         <div className="flex items-start space-x-3">
           {/* Selection Checkbox */}
@@ -112,7 +112,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
               type="checkbox"
               checked={isSelected}
               onChange={() => onToggleSelect(notification.id)}
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              className="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 focus:ring-2"
               aria-label={`Selecionar notificação: ${notification.title}`}
             />
           </div>
@@ -130,7 +130,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
                 {notification.title}
               </h3>
               {!notification.isRead && (
-                <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-label="Notificação não lida" />
+                <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0" aria-label="Notificação não lida" />
               )}
             </div>
 
@@ -171,7 +171,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
               {!notification.isRead && (
                 <button
                   onClick={() => onMarkAsRead(notification.id)}
-                  className="inline-flex items-center px-2 py-1 text-xs font-medium text-blue-600 bg-blue-100 rounded hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 transition-colors"
+                  className="inline-flex items-center px-2 py-1 text-xs font-medium text-orange-600 bg-blue-100 rounded hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 transition-colors"
                   aria-label="Marcar como lida"
                 >
                   <FaCheck className="w-3 h-3 mr-1" />
