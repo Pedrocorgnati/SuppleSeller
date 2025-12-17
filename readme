@@ -1,2 +1,0 @@
-npm run db:push:mock      
-npm run dev:mock -- --hostname 127.0.0.1 --port 3001   
