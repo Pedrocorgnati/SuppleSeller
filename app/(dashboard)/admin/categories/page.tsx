@@ -25,7 +25,7 @@ const DashboardCategory = () => {
       <DashboardSidebar />
       <div className="w-full">
         <h1 className="text-3xl font-semibold text-center mb-5">
-          All Categories
+          Todas as categorias
         </h1>
         <div className="flex justify-end mb-5">
           <Link href="/admin/categories/new">
@@ -35,7 +35,7 @@ const DashboardCategory = () => {
               paddingX={10}
               paddingY={5}
               textSize="base"
-              text="Add new category"
+              text="Adicionar categoria"
             />
           </Link>
         </div>
@@ -49,7 +49,7 @@ const DashboardCategory = () => {
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </th>
-                <th>Name</th>
+                <th>Nome</th>
                 <th></th>
               </tr>
             </thead>
@@ -70,21 +70,21 @@ const DashboardCategory = () => {
                     </td>
 
                     <th>
-                      <Link
-                        href={`/admin/categories/${category?.id}`}
-                        className="btn btn-ghost btn-xs"
-                      >
-                        details
-                      </Link>
-                    </th>
-                  </tr>
-                ))}
+                    <Link
+                      href={`/admin/categories/${category?.id}`}
+                      className="btn btn-ghost btn-xs"
+                    >
+                      detalhes
+                    </Link>
+                  </th>
+                </tr>
+              ))}
             </tbody>
             {/* foot */}
             <tfoot>
               <tr>
                 <th></th>
-                <th>Name</th>
+                <th>Nome</th>
                 <th></th>
               </tr>
             </tfoot>

@@ -52,7 +52,7 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
               src={product?.mainImage ? `/${product?.mainImage}` : "/product_placeholder.jpg"}
               width={500}
               height={500}
-              alt="main image"
+              alt="imagem principal"
               className="w-auto h-auto"
             />
             <div className="flex justify-around mt-5 flex-wrap gap-y-1 max-[500px]:justify-center max-[500px]:gap-x-1">
@@ -80,7 +80,7 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
                 SKU: <span className="ml-1">abccd-18</span>
               </p>
               <div className="text-lg flex gap-x-2">
-                <span>Share:</span>
+                <span>Compartilhar:</span>
                 <div className="flex items-center gap-x-1 text-2xl">
                   <FaSquareFacebook />
                   <FaSquareXTwitter />
@@ -92,42 +92,42 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
                   src="/visa.svg"
                   width={50}
                   height={50}
-                  alt="visa icon"
+                  alt="ícone da Visa"
                   className="w-auto h-auto"
                 />
                 <Image
                   src="/mastercard.svg"
                   width={50}
                   height={50}
-                  alt="mastercard icon"
+                  alt="ícone da Mastercard"
                   className="h-auto w-auto"
                 />
                 <Image
                   src="/ae.svg"
                   width={50}
                   height={50}
-                  alt="americal express icon"
+                  alt="ícone da American Express"
                   className="h-auto w-auto"
                 />
                 <Image
                   src="/paypal.svg"
                   width={50}
                   height={50}
-                  alt="paypal icon"
+                  alt="ícone do PayPal"
                   className="w-auto h-auto"
                 />
                 <Image
                   src="/dinersclub.svg"
                   width={50}
                   height={50}
-                  alt="diners club icon"
+                  alt="ícone do Diners Club"
                   className="h-auto w-auto"
                 />
                 <Image
                   src="/discover.svg"
                   width={50}
                   height={50}
-                  alt="discover icon"
+                  alt="ícone da Discover"
                   className="h-auto w-auto"
                 />
               </div>

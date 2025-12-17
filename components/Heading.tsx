@@ -8,11 +8,10 @@
 // Output: h2 heading title with some styles 
 // *********************
 
-import React from 'react'
 
-const Heading = ({ title } : { title: string }) => {
+const Heading = ({ title }: { title: string }) => {
   return (
-    <h2 className="text-white text-7xl font-extrabold text-center mt-20 max-lg:text-5xl">{ title }</h2>
+    <h2 className="text-blue-600 text-7xl font-extrabold text-center mt-20 max-lg:text-5xl">{title}</h2>
   )
 }
 

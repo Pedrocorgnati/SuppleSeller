@@ -18,7 +18,7 @@ const DashboardCreateNewUser = () => {
 
   const addNewUser = async () => {
     if (userInput.email === "" || userInput.password === "") {
-      toast.error("You must enter all input values to add a user");
+      toast.error("Preencha todos os campos para adicionar um usuário");
       return;
     }
 
@@ -31,7 +31,7 @@ const DashboardCreateNewUser = () => {
       userInput.password.length > 0
     ) {
       if (!isValidEmailAddressFormat(userInput.email)) {
-        toast.error("You entered invalid email address format");
+        toast.error("Formato de email inválido");
         return;
       }
 
@@ -48,24 +48,24 @@ const DashboardCreateNewUser = () => {
 
             }else{
               
-              throw Error("Error while creating user");
+              throw Error("Erro ao criar usuário");
             }
           })
           .then((data) => {
-            toast.success("User added successfully");
+            toast.success("Usuário adicionado com sucesso");
             setUserInput({
               email: "",
               password: "",
               role: "user",
             });
           }).catch(error => {
-            toast.error("Error while creating user");
+            toast.error("Erro ao criar usuário");
           });
       } else {
-        toast.error("Password must be longer than 7 characters");
+        toast.error("A senha deve ter mais de 7 caracteres");
       }
     } else {
-      toast.error("You must enter all input values to add a user");
+      toast.error("Preencha todos os campos para adicionar um usuário");
     }
   };
 
@@ -73,7 +73,7 @@ const DashboardCreateNewUser = () => {
     <div className="bg-white flex justify-start max-w-screen-2xl mx-auto xl:h-full max-xl:flex-col max-xl:gap-y-5">
       <DashboardSidebar />
       <div className="flex flex-col gap-y-7 xl:pl-5 max-xl:px-5 w-full">
-        <h1 className="text-3xl font-semibold">Add new user</h1>
+        <h1 className="text-3xl font-semibold">Adicionar novo usuário</h1>
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -93,7 +93,7 @@ const DashboardCreateNewUser = () => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Password:</span>
+              <span className="label-text">Senha:</span>
             </div>
             <input
               type="password"
@@ -109,7 +109,7 @@ const DashboardCreateNewUser = () => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">User role: </span>
+              <span className="label-text">Função do usuário: </span>
             </div>
             <select
               className="select select-bordered"
@@ -130,7 +130,7 @@ const DashboardCreateNewUser = () => {
             className="uppercase bg-blue-500 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2"
             onClick={addNewUser}
           >
-            Create user
+            Criar usuário
           </button>
         </div>
       </div>

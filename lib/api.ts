@@ -29,8 +29,8 @@ type Category = {
 const products: Product[] = [
   {
     id: "10",
-    title: "Whey Protein Isolado",
-    price: 64,
+    title: "100% Whey 900g",
+    price: 90.00,
     rating: 3,
     description: "Isolado de soro com alta biodisponibilidade e baixo teor de lactose.",
     mainImage: "whey 1.png",
@@ -41,8 +41,8 @@ const products: Product[] = [
   },
   {
     id: "9",
-    title: "Creatina Monohidratada",
-    price: 89,
+    title: "Creatina 300g",
+    price: 110,
     rating: 3,
     description: "Creatina 100% pura para força, potência e ganho muscular comprovados.",
     mainImage: "creatina 1.png",
@@ -53,8 +53,8 @@ const products: Product[] = [
   },
   {
     id: "1",
-    title: "BCAA Recovery Stack",
-    price: 22,
+    title: "BCAA Powder Optimum 200g",
+    price: 220,
     rating: 5,
     description: "Blend de aminoácidos essenciais para reduzir fadiga e acelerar a recuperação muscular.",
     mainImage: "bcaa 1.png",
@@ -65,8 +65,8 @@ const products: Product[] = [
   },
   {
     id: "4",
-    title: "Mass Gainer Shake",
-    price: 21,
+    title: "Monsterone 3kg",
+    price: 210,
     rating: 5,
     description: "Hipercalórico com proteínas e carboidratos complexos para ganho de massa.",
     mainImage: "mass 1.png",
@@ -77,7 +77,7 @@ const products: Product[] = [
   },
   {
     id: "6",
-    title: "Vitamin Complex Daily",
+    title: "Vitapure 60cp",
     price: 74,
     rating: 3,
     description: "Vitaminas e minerais essenciais para imunidade e energia diária.",
@@ -89,8 +89,8 @@ const products: Product[] = [
   },
   {
     id: "11",
-    title: "Barrinha de Proteína Mix",
-    price: 52,
+    title: "Protein Crisp",
+    price: 5.00,
     rating: 5,
     description: "Combo de barras proteicas com fibras para lanches rápidos e nutritivos.",
     mainImage: "protein bar 1.png",
@@ -101,7 +101,7 @@ const products: Product[] = [
   },
   {
     id: "8",
-    title: "Vegan Protein Blend",
+    title: "True Vegan Whey 450g",
     price: 69,
     rating: 5,
     description: "Proteína vegetal com perfil completo de aminoácidos e sabor cremoso.",
@@ -113,8 +113,8 @@ const products: Product[] = [
   },
   {
     id: "7",
-    title: "Kimono Performance Gi",
-    price: 35,
+    title: "Kimono Performance ",
+    price: 350,
     rating: 5,
     description: "Kimono leve e resistente para treinos intensos de Jiu-Jitsu.",
     mainImage: "kimono image 1.png",
@@ -125,8 +125,8 @@ const products: Product[] = [
   },
   {
     id: "5",
-    title: "Cinto de Levantamento Premium",
-    price: 52,
+    title: "Faixa de Jiu-Jitsu",
+    price: 80,
     rating: 4,
     description: "Estabilidade e suporte lombar para agachamento e levantamento terra.",
     mainImage: "belt 1 1.png",
@@ -137,8 +137,8 @@ const products: Product[] = [
   },
   {
     id: "2",
-    title: "CarbUp Energy Gel",
-    price: 24,
+    title: "VO2 Carbo gel",
+    price: 4.50,
     rating: 0,
     description: "Carboidrato de rápida absorção com eletrólitos para treinos e provas longas.",
     mainImage: "carbup 1.png",
@@ -149,7 +149,7 @@ const products: Product[] = [
   },
   {
     id: "12",
-    title: "ZMA Night Recovery",
+    title: "ZMA Max Titanium 90cp",
     price: 54,
     rating: 5,
     description: "Zinco, magnésio e vitamina B6 para sono reparador e síntese muscular.",
@@ -161,8 +161,8 @@ const products: Product[] = [
   },
   {
     id: "3",
-    title: "Kit de Equipamentos Essentials",
-    price: 25,
+    title: "Halter de 10kg",
+    price: 180,
     rating: 4,
     description: "Corda, bandagem e acessórios para montar seu treino funcional em casa ou na academia.",
     mainImage: "equipamento 1.png",

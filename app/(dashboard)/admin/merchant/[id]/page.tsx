@@ -58,7 +58,7 @@ export default function MerchantDetailPage({
           router.push("/admin/merchant");
           return;
         }
-        throw new Error("Failed to fetch merchant");
+        throw new Error("Falha ao buscar lojista");
       }
       
       const data = await response.json();
@@ -72,8 +72,8 @@ export default function MerchantDetailPage({
         status: data.status || "ACTIVE",
       });
     } catch (error) {
-      console.error("Error fetching merchant:", error);
-      toast.error("Failed to load merchant details");
+      console.error("Erro ao buscar lojista:", error);
+      toast.error("Falha ao carregar detalhes do lojista");
     } finally {
       setLoading(false);
     }
@@ -100,19 +100,19 @@ const handleInputChange = (
     const response = await apiClient.put(`/api/merchants/${id}`, formData);
 
     if (!response.ok) {
-      throw new Error("Failed to update merchant");
+      throw new Error("Falha ao atualizar o lojista");
     }
 
-    toast.success("Merchant updated successfully");
+    toast.success("Lojista atualizado com sucesso");
     fetchMerchant(); // Refresh data
   } catch (error) {
-    console.error("Error updating merchant:", error);
-    toast.error("Failed to update merchant");
+    console.error("Erro ao atualizar lojista:", error);
+    toast.error("Falha ao atualizar lojista");
   }
 };
 
   const handleDelete = async () => {
-    if (!confirm("Are you sure you want to delete this merchant?")) {
+    if (!confirm("Tem certeza de que deseja excluir este lojista?")) {
       return;
     }
     
@@ -121,17 +121,17 @@ const handleInputChange = (
       
       if (!response.ok) {
         const data = await response.json();
-        throw new Error(data.error || "Failed to delete merchant");
+        throw new Error(data.error || "Falha ao excluir lojista");
       }
       
-      toast.success("Merchant deleted successfully");
+      toast.success("Lojista excluído com sucesso");
       router.push("/admin/merchant");
     } catch (error) {
-      console.error("Error deleting merchant:", error);
+      console.error("Erro ao excluir lojista:", error);
       toast.error(
         typeof error === "object" && error !== null && "message" in error
-          ? (error as { message?: string }).message || "Failed to delete merchant"
-          : "Failed to delete merchant"
+          ? (error as { message?: string }).message || "Falha ao excluir lojista"
+          : "Falha ao excluir lojista"
       );
     }
   };
@@ -141,7 +141,7 @@ const handleInputChange = (
       <div className="flex h-screen">
         <DashboardSidebar />
         <div className="flex-1 p-10 flex items-center justify-center">
-          Loading merchant details...
+          Carregando detalhes do lojista...
         </div>
       </div>
     );
@@ -152,7 +152,7 @@ const handleInputChange = (
       <div className="flex h-screen">
         <DashboardSidebar />
         <div className="flex-1 p-10 flex items-center justify-center">
-          Merchant not found
+          Lojista não encontrado
         </div>
       </div>
     );
@@ -163,19 +163,19 @@ const handleInputChange = (
       <DashboardSidebar />
       <div className="flex-1 p-10 overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">Merchant Details</h1>
+          <h1 className="text-3xl font-bold">Detalhes do lojista</h1>
           <div className="flex gap-4">
             <Link
               href="/admin/merchant"
               className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition"
             >
-              Back to Merchants
+              Voltar para lojistas
             </Link>
             <button
               onClick={handleDelete}
               className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition"
             >
-              Delete Merchant
+              Excluir lojista
             </button>
           </div>
         </div>
@@ -183,7 +183,7 @@ const handleInputChange = (
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Name</label>
+              <label className="block text-gray-700 font-medium mb-2">Nome</label>
               <input
                 type="text"
                 name="name"
@@ -204,7 +204,7 @@ const handleInputChange = (
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Phone</label>
+              <label className="block text-gray-700 font-medium mb-2">Telefone</label>
               <input
                 type="text"
                 name="phone"
@@ -221,12 +221,12 @@ const handleInputChange = (
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
               >
-                <option value="ACTIVE">Active</option>
-                <option value="INACTIVE">Inactive</option>
+                <option value="ACTIVE">Ativo</option>
+                <option value="INACTIVE">Inativo</option>
               </select>
             </div>
             <div className="md:col-span-2">
-              <label className="block text-gray-700 font-medium mb-2">Address</label>
+              <label className="block text-gray-700 font-medium mb-2">Endereço</label>
               <input
                 type="text"
                 name="address"
@@ -236,7 +236,7 @@ const handleInputChange = (
               />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-gray-700 font-medium mb-2">Description</label>
+              <label className="block text-gray-700 font-medium mb-2">Descrição</label>
               <textarea
                 name="description"
                 value={formData.description}
@@ -249,22 +249,22 @@ const handleInputChange = (
                 type="submit"
                 className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition"
               >
-                Save Changes
+                Salvar alterações
               </button>
             </div>
           </form>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold mb-4">Merchant Products</h2>
+          <h2 className="text-xl font-bold mb-4">Produtos do lojista</h2>
           {merchant.products.length > 0 ? (
             <table className="w-full">
               <thead>
                 <tr className="border-b">
-                  <th className="py-3 text-left">Title</th>
-                  <th className="py-3 text-left">Price</th>
-                  <th className="py-3 text-left">In Stock</th>
-                  <th className="py-3 text-left">Actions</th>
+                  <th className="py-3 text-left">Título</th>
+                  <th className="py-3 text-left">Preço</th>
+                  <th className="py-3 text-left">Em estoque</th>
+                  <th className="py-3 text-left">Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -272,21 +272,21 @@ const handleInputChange = (
                   <tr key={product.id} className="border-b hover:bg-gray-50">
                     <td className="py-4">{product.title}</td>
                     <td className="py-4">${product.price / 100}</td>
-                    <td className="py-4">{product.inStock}</td>
-                    <td className="py-4">
-                      <Link
-                        href={`/admin/products/${product.id}`}
-                        className="text-blue-500 hover:underline"
-                      >
-                        View
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                  <td className="py-4">{product.inStock}</td>
+                  <td className="py-4">
+                    <Link
+                      href={`/admin/products/${product.id}`}
+                      className="text-blue-500 hover:underline"
+                    >
+                        Ver
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
           ) : (
-            <p className="text-gray-500">No products for this merchant yet.</p>
+            <p className="text-gray-500">Ainda não há produtos para este lojista.</p>
           )}
         </div>
       </div>

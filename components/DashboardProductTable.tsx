@@ -32,7 +32,7 @@ const DashboardProductTable = () => {
 
   return (
     <div className="w-full">
-      <h1 className="text-3xl font-semibold text-center mb-5">All products</h1>
+      <h1 className="text-3xl font-semibold text-center mb-5">Todos os produtos</h1>
       <div className="flex justify-end mb-5">
         <Link href="/admin/products/new">
           <CustomButton
@@ -41,7 +41,7 @@ const DashboardProductTable = () => {
             paddingX={10}
             paddingY={5}
             textSize="base"
-            text="Add new product"
+            text="Adicionar produto"
           />
         </Link>
       </div>
@@ -56,9 +56,9 @@ const DashboardProductTable = () => {
                   <input type="checkbox" className="checkbox" />
                 </label>
               </th>
-              <th>Product</th>
-              <th>Stock Availability</th>
-              <th>Price</th>
+              <th>Produto</th>
+              <th>Disponibilidade de estoque</th>
+              <th>Preço</th>
               <th></th>
             </tr>
           </thead>
@@ -77,11 +77,11 @@ const DashboardProductTable = () => {
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <Image
+                            <Image
                             width={48}
                             height={48}
                             src={product?.mainImage ? `/${product?.mainImage}` : "/product_placeholder.jpg"}
-                            alt={sanitize(product?.title) || "Product image"}
+                            alt={sanitize(product?.title) || "Imagem do produto"}
                             className="w-auto h-auto"
                           />
                         </div>
@@ -97,9 +97,9 @@ const DashboardProductTable = () => {
 
                   <td>
                     { product?.inStock ? (<span className="badge badge-success text-white badge-sm">
-                      In stock
+                      Em estoque
                     </span>) : (<span className="badge badge-error text-white badge-sm">
-                      Out of stock
+                      Sem estoque
                     </span>) }
                     
                   </td>
@@ -109,7 +109,7 @@ const DashboardProductTable = () => {
                       href={`/admin/products/${product.id}`}
                       className="btn btn-ghost btn-xs"
                     >
-                      details
+                      detalhes
                     </Link>
                   </th>
                 </tr>
@@ -119,9 +119,9 @@ const DashboardProductTable = () => {
           <tfoot>
             <tr>
               <th></th>
-              <th>Product</th>
-              <th>Stock Availability</th>
-              <th>Price</th>
+              <th>Produto</th>
+              <th>Disponibilidade de estoque</th>
+              <th>Preço</th>
               <th></th>
             </tr>
           </tfoot>

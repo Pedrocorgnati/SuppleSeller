@@ -33,14 +33,14 @@ const DashboardSingleUserPage = ({ params }: DashboardUserDetailsProps) => {
       .delete(`/api/users/${id}`, requestOptions)
       .then((response) => {
         if (response.status === 204) {
-          toast.success("User deleted successfully");
+          toast.success("Usuário excluído com sucesso");
           router.push("/admin/users");
         } else {
-          throw Error("There was an error while deleting user");
+          throw Error("Ocorreu um erro ao excluir o usuário");
         }
       })
       .catch((error) => {
-        toast.error("There was an error while deleting user");
+        toast.error("Ocorreu um erro ao excluir o usuário");
       });
   };
 
@@ -51,7 +51,7 @@ const DashboardSingleUserPage = ({ params }: DashboardUserDetailsProps) => {
       userInput.newPassword.length > 0
     ) {
       if (!isValidEmailAddressFormat(userInput.email)) {
-        toast.error("You entered invalid email address format");
+        toast.error("Formato de email inválido");
         return;
       }
 
@@ -65,21 +65,21 @@ const DashboardSingleUserPage = ({ params }: DashboardUserDetailsProps) => {
 
           if (response.status === 200) {
             await response.json();
-            toast.success("User successfully updated");
+            toast.success("Usuário atualizado com sucesso");
           } else {
             const errorData = await response.json();
-            toast.error(errorData.error || "Error while updating user");
+            toast.error(errorData.error || "Erro ao atualizar o usuário");
           }
         } catch (error) {
-          console.error("Error updating user:", error);
-          toast.error("There was an error while updating user");
+          console.error("Erro ao atualizar usuário:", error);
+          toast.error("Ocorreu um erro ao atualizar o usuário");
         }
       } else {
-        toast.error("Password must be longer than 7 characters");
+        toast.error("A senha deve ter mais de 7 caracteres");
         return;
       }
     } else {
-      toast.error("For updating a user you must enter all values");
+      toast.error("Para atualizar o usuário, preencha todos os campos");
       return;
     }
   };
@@ -104,7 +104,7 @@ const DashboardSingleUserPage = ({ params }: DashboardUserDetailsProps) => {
     <div className="bg-white flex justify-start max-w-screen-2xl mx-auto xl:h-full max-xl:flex-col max-xl:gap-y-5">
       <DashboardSidebar />
       <div className="flex flex-col gap-y-7 xl:pl-5 max-xl:px-5 w-full">
-        <h1 className="text-3xl font-semibold">User details</h1>
+        <h1 className="text-3xl font-semibold">Detalhes do usuário</h1>
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -124,7 +124,7 @@ const DashboardSingleUserPage = ({ params }: DashboardUserDetailsProps) => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">New password:</span>
+              <span className="label-text">Nova senha:</span>
             </div>
             <input
               type="password"
@@ -140,7 +140,7 @@ const DashboardSingleUserPage = ({ params }: DashboardUserDetailsProps) => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">User role: </span>
+              <span className="label-text">Função do usuário: </span>
             </div>
             <select
               className="select select-bordered"
@@ -157,19 +157,19 @@ const DashboardSingleUserPage = ({ params }: DashboardUserDetailsProps) => {
         <div className="flex gap-x-2 max-sm:flex-col">
           <button
             type="button"
-            className="uppercase bg-blue-500 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2"
-            onClick={updateUser}
-          >
-            Update user
-          </button>
-          <button
-            type="button"
-            className="uppercase bg-red-600 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2"
-            onClick={deleteUser}
-          >
-            Delete user
-          </button>
-        </div>
+          className="uppercase bg-blue-500 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2"
+          onClick={updateUser}
+        >
+            Atualizar usuário
+        </button>
+        <button
+          type="button"
+          className="uppercase bg-red-600 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2"
+          onClick={deleteUser}
+        >
+            Excluir usuário
+        </button>
+      </div>
       </div>
     </div>
   );

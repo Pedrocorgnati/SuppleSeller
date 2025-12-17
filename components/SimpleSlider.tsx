@@ -39,7 +39,7 @@ function SimpleSlider() {
               A creatina auxilia na força, volume muscular e recuperação entre séries de alta intensidade.
             </p>
             <Link href="/shop" className="bg-custom-yellow btn w-52 h-14 text-black uppercase border border-black text-xl hover:bg-black hover:text-custom-yellow max-[1162px]:w-44 max-[1162px]:h-10 max-[1162px]:text-lg max-lg:text-base max-lg:w-36 max-md:text-sm max-md:w-32">
-              Shop now
+              Comprar agora
             </Link>
           </div>
           <Image src="/supplement store.jpg" alt="prateleira de suplementos" fill className="object-cover" priority />
@@ -56,7 +56,7 @@ function SimpleSlider() {
             Complexos vitamínicos completos para suporte imunológico, disposição e recuperação.
             </p>
             <Link href="/shop" className="bg-custom-yellow btn w-52 h-14 text-black uppercase border border-black text-xl hover:bg-black hover:text-custom-yellow max-[1162px]:w-44 max-[1162px]:h-10 max-[1162px]:text-lg max-lg:text-base max-lg:w-36 max-md:text-sm max-md:w-32">
-              Shop now
+              Comprar agora
             </Link>
           </div>
           <Image src="/gym.jpg" alt="academia e treino funcional" fill className="object-cover" />

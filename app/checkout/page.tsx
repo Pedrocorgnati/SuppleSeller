@@ -34,54 +34,54 @@ const CheckoutPage = () => {
     
     // Name validation
     if (!checkoutForm.name.trim() || checkoutForm.name.trim().length < 2) {
-      errors.push("Name must be at least 2 characters");
+      errors.push("O nome deve ter pelo menos 2 caracteres");
     }
     
     // Lastname validation
     if (!checkoutForm.lastname.trim() || checkoutForm.lastname.trim().length < 2) {
-      errors.push("Lastname must be at least 2 characters");
+      errors.push("O sobrenome deve ter pelo menos 2 caracteres");
     }
     
     // Email validation
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     if (!checkoutForm.email.trim() || !emailRegex.test(checkoutForm.email.trim())) {
-      errors.push("Please enter a valid email address");
+      errors.push("Digite um endereço de email válido");
     }
     
     // Phone validation (must be at least 10 digits)
     const phoneDigits = checkoutForm.phone.replace(/[^0-9]/g, '');
     if (!checkoutForm.phone.trim() || phoneDigits.length < 10) {
-      errors.push("Phone number must be at least 10 digits");
+      errors.push("O telefone deve ter pelo menos 10 dígitos");
     }
     
     // Company validation
     if (!checkoutForm.company.trim() || checkoutForm.company.trim().length < 5) {
-      errors.push("Company must be at least 5 characters");
+      errors.push("A empresa deve ter pelo menos 5 caracteres");
     }
     
     // Address validation
     if (!checkoutForm.adress.trim() || checkoutForm.adress.trim().length < 5) {
-      errors.push("Address must be at least 5 characters");
+      errors.push("O endereço deve ter pelo menos 5 caracteres");
     }
     
     // Apartment validation (updated to 1 character minimum)
     if (!checkoutForm.apartment.trim() || checkoutForm.apartment.trim().length < 1) {
-      errors.push("Apartment is required");
+      errors.push("Apartamento é obrigatório");
     }
     
     // City validation
     if (!checkoutForm.city.trim() || checkoutForm.city.trim().length < 5) {
-      errors.push("City must be at least 5 characters");
+      errors.push("A cidade deve ter pelo menos 5 caracteres");
     }
     
     // Country validation
     if (!checkoutForm.country.trim() || checkoutForm.country.trim().length < 5) {
-      errors.push("Country must be at least 5 characters");
+      errors.push("O país deve ter pelo menos 5 caracteres");
     }
     
     // Postal code validation
     if (!checkoutForm.postalCode.trim() || checkoutForm.postalCode.trim().length < 3) {
-      errors.push("Postal code must be at least 3 characters");
+      errors.push("O CEP deve ter pelo menos 3 caracteres");
     }
     
     return errors;
@@ -108,17 +108,17 @@ const CheckoutPage = () => {
     );
 
     if (missingFields.length > 0) {
-      toast.error("Please fill in all required fields");
+      toast.error("Preencha todos os campos obrigatórios");
       return;
     }
 
     if (products.length === 0) {
-      toast.error("Your cart is empty");
+      toast.error("Seu carrinho está vazio");
       return;
     }
 
     if (total <= 0) {
-      toast.error("Invalid order total");
+      toast.error("Total do pedido inválido");
       return;
     }
 
@@ -187,7 +187,7 @@ const CheckoutPage = () => {
           // Handle different error types
           if (response.status === 409) {
             // Duplicate order error
-            toast.error(errorData.details || errorData.error || "Duplicate order detected");
+            toast.error(errorData.details || errorData.error || "Pedido duplicado detectado");
             return; // Don't throw, just return to stop execution
           } else if (errorData.details && Array.isArray(errorData.details)) {
             // Validation errors
@@ -199,11 +199,11 @@ const CheckoutPage = () => {
             toast.error(errorData.details);
           } else {
             // Fallback error message
-            toast.error(errorData.error || "Order creation failed");
+            toast.error(errorData.error || "Falha ao criar o pedido");
           }
         } catch (parseError) {
           console.error("Could not parse error as JSON:", parseError);
-          toast.error("Order creation failed. Please try again.");
+          toast.error("Falha ao criar o pedido. Tente novamente.");
         }
         
         return; // Stop execution instead of throwing
@@ -261,7 +261,7 @@ const CheckoutPage = () => {
         console.log('Note: Could not trigger notification refresh');
       }
       
-      toast.success("Order created successfully! You will be contacted for payment.");
+      toast.success("Pedido criado com sucesso! Entraremos em contato para pagamento.");
       setTimeout(() => {
         router.push("/");
       }, 1000);
@@ -280,17 +280,17 @@ const CheckoutPage = () => {
               toast.error(`${detail.field}: ${detail.message}`);
             });
           } else {
-            toast.error(errorData.error || "Validation failed");
+            toast.error(errorData.error || "Falha de validação");
           }
         } catch (parseError) {
           console.error("Failed to parse error response:", parseError);
-          toast.error("Validation failed");
+          toast.error("Falha de validação");
         }
       } else if (error.response?.status === 409) {
-        toast.error("Duplicate order detected. Please wait before creating another order.");
+        toast.error("Pedido duplicado detectado. Aguarde antes de criar outro pedido.");
       } else {
         console.log("🔍 Handling generic error...");
-        toast.error("Failed to create order. Please try again.");
+        toast.error("Não foi possível criar o pedido. Tente novamente.");
       }
     } finally {
       setIsSubmitting(false);
@@ -334,20 +334,20 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     if (products.length === 0) {
-      toast.error("You don't have items in your cart");
+      toast.error("Você não tem itens no carrinho");
       router.push("/cart");
     }
   }, []);
 
   return (
     <div className="bg-white">
-      <SectionTitle title="Checkout" path="Home | Cart | Checkout" />
+      <SectionTitle title="Finalizar compra" path="Início | Carrinho | Finalizar compra" />
       
       <div className="hidden h-full w-1/2 bg-white lg:block" aria-hidden="true" />
       <div className="hidden h-full w-1/2 bg-gray-50 lg:block" aria-hidden="true" />
 
       <main className="relative mx-auto grid max-w-screen-2xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
-        <h1 className="sr-only">Order information</h1>
+        <h1 className="sr-only">Informações do pedido</h1>
 
         {/* Order Summary */}
         <section
@@ -356,7 +356,7 @@ const CheckoutPage = () => {
         >
           <div className="mx-auto max-w-lg lg:max-w-none">
             <h2 id="summary-heading" className="text-lg font-medium text-gray-900">
-              Order summary
+              Resumo do pedido
             </h2>
 
             <ul
@@ -389,11 +389,11 @@ const CheckoutPage = () => {
                 <dd>${total}</dd>
               </div>
               <div className="flex items-center justify-between">
-                <dt className="text-gray-600">Shipping</dt>
+                <dt className="text-gray-600">Frete</dt>
                 <dd>$5</dd>
               </div>
               <div className="flex items-center justify-between">
-                <dt className="text-gray-600">Taxes</dt>
+                <dt className="text-gray-600">Impostos</dt>
                 <dd>${total / 5}</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-6">
@@ -414,7 +414,7 @@ const CheckoutPage = () => {
                 id="contact-info-heading"
                 className="text-lg font-medium text-gray-900"
               >
-                Contact information
+                Informações de contato
               </h2>
 
               <div className="mt-6">
@@ -422,7 +422,7 @@ const CheckoutPage = () => {
                   htmlFor="name-input"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Name * (min 2 characters)
+                  Nome * (mín. 2 caracteres)
                 </label>
                 <div className="mt-1">
                   <input
@@ -449,7 +449,7 @@ const CheckoutPage = () => {
                   htmlFor="lastname-input"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Lastname * (min 2 characters)
+                  Sobrenome * (mín. 2 caracteres)
                 </label>
                 <div className="mt-1">
                   <input
@@ -476,7 +476,7 @@ const CheckoutPage = () => {
                   htmlFor="phone-input"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Phone number * (min 10 digits)
+                  Telefone * (mín. 10 dígitos)
                 </label>
                 <div className="mt-1">
                   <input
@@ -503,7 +503,7 @@ const CheckoutPage = () => {
                   htmlFor="email-address"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Email address *
+                  Endereço de email *
                 </label>
                 <div className="mt-1">
                   <input
@@ -530,22 +530,22 @@ const CheckoutPage = () => {
             <section className="mt-10">
               <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
                 <div className="flex">
-                  <div className="flex-shrink-0">
-                    <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-sm font-medium text-blue-800">
-                      Payment Information
-                    </h3>
-                    <div className="mt-2 text-sm text-blue-700">
-                      <p>Payment will be processed after order confirmation. You will be contacted for payment details.</p>
-                    </div>
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <h3 className="text-sm font-medium text-blue-800">
+                      Informações de pagamento
+                  </h3>
+                  <div className="mt-2 text-sm text-blue-700">
+                      <p>O pagamento será processado após a confirmação do pedido. Entraremos em contato para informar os detalhes.</p>
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
+          </section>
 
             {/* Shipping Address */}
             <section aria-labelledby="shipping-heading" className="mt-10">
@@ -553,7 +553,7 @@ const CheckoutPage = () => {
                 id="shipping-heading"
                 className="text-lg font-medium text-gray-900"
               >
-                Shipping address
+                Endereço de entrega
               </h2>
 
               <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-3">
@@ -562,7 +562,7 @@ const CheckoutPage = () => {
                     htmlFor="company"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Company *
+                    Empresa *
                   </label>
                   <div className="mt-1">
                     <input
@@ -588,7 +588,7 @@ const CheckoutPage = () => {
                     htmlFor="address"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Address *
+                    Endereço *
                   </label>
                   <div className="mt-1">
                     <input
@@ -615,7 +615,7 @@ const CheckoutPage = () => {
                     htmlFor="apartment"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Apartment, suite, etc. * (required)
+                    Apartamento, sala, etc. * (obrigatório)
                   </label>
                   <div className="mt-1">
                     <input
@@ -641,7 +641,7 @@ const CheckoutPage = () => {
                     htmlFor="city"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    City *
+                    Cidade *
                   </label>
                   <div className="mt-1">
                     <input
@@ -668,7 +668,7 @@ const CheckoutPage = () => {
                     htmlFor="region"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Country *
+                    País *
                   </label>
                   <div className="mt-1">
                     <input
@@ -695,7 +695,7 @@ const CheckoutPage = () => {
                     htmlFor="postal-code"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Postal code *
+                    CEP *
                   </label>
                   <div className="mt-1">
                     <input
@@ -722,7 +722,7 @@ const CheckoutPage = () => {
                     htmlFor="order-notice"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Order notice
+                    Observação do pedido
                   </label>
                   <div className="mt-1">
                     <textarea
@@ -751,7 +751,7 @@ const CheckoutPage = () => {
                 disabled={isSubmitting}
                 className="w-full rounded-md border border-transparent bg-blue-500 px-20 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Processing Order..." : "Place Order"}
+                {isSubmitting ? "Processando pedido..." : "Finalizar pedido"}
               </button>
             </div>
           </div>

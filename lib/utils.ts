@@ -1,15 +1,15 @@
 export const categoryMenuList = [
   {
     id: 1,
-    title: "BCAA",
-    src: "/bcaa icon.png",
-    href: "/shop/bcaa"
+    title: "Whey Protein",
+    src: "/whey.png",
+    href: "/shop/whey"
   },
   {
     id: 2,
-    title: "Cintos (Belt)",
-    src: "/belt icon.png",
-    href: "/shop/belt"
+    title: "Creatina",
+    src: "/creatina icon.png",
+    href: "/shop/creatina"
   },
   {
     id: 3,
@@ -19,51 +19,52 @@ export const categoryMenuList = [
   },
   {
     id: 4,
-    title: "CarbUp",
+    title: "Carbo gel",
     src: "/carbup icon.png",
     href: "/shop/carbup"
   },
+
   {
     id: 5,
-    title: "Whey Protein",
-    src: "/whey.png",
-    href: "/shop/whey"
-  },
-  {
-    id: 6,
-    title: "Vegan PTN",
+    title: "Vegan Protein",
     src: "/veganptn icon.png",
     href: "/shop/veganptn"
   },
   {
-    id: 7,
+    id: 6,
     title: "Barrinhas de Proteína",
     src: "/protein bar icon.png",
     href: "/shop/protein-bar"
   },
   {
-    id: 8,
-    title: "Mass Gainer",
+    id: 7,
+    title: "Hipercalórico",
     src: "/mass icon.png",
     href: "/shop/mass"
   },
   {
-    id: 9,
+    id: 8,
     title: "Vitaminas",
     src: "/vitamin icon.png",
     href: "/shop/vitaminas"
   },
   {
+    id: 9,
+    title: "BCAA",
+    src: "/bcaa icon.png",
+    href: "/shop/bcaa"
+  },
+  {
     id: 10,
-    title: "Creatina",
-    src: "/creatina icon.png",
-    href: "/shop/creatina"
+    title: "Kimonos e faixas",
+    src: "/belt icon.png",
+    href: "/shop/belt"
   },
 ];
 
 export const incentives = [
   {
-    name: "Free Shipping",
+    name: "Frete grátis",
     description:
       "Frete grátis para suplementos e acessórios selecionados no Brasil.",
     imageSrc: "/shipping icon.png",
@@ -84,26 +85,26 @@ export const incentives = [
 
 export const navigation = {
   sale: [
-    { name: "Discounts", href: "#" },
-    { name: "News", href: "#" },
-    { name: "Register Discounts", href: "#" },
+    { name: "Descontos", href: "#" },
+    { name: "Novidades", href: "#" },
+    { name: "Registrar Descontos", href: "#" },
   ],
   about: [
     { name: "Sobre SuppleSeller", href: "#" },
-    { name: "Work With Us", href: "#" },
-    { name: "Company Profile", href: "#" },
+    { name: "Trabalhe Conosco", href: "#" },
+    { name: "Perfil da Empresa", href: "#" },
   ],
   buy: [
-    { name: "SuppleSeller Loyalty", href: "#" },
-    { name: "Terms Of Use", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Complaints", href: "#" },
-    { name: "Partners", href: "#" },
+    { name: "Clube de Fidelidade SuppleSeller", href: "#" },
+    { name: "Termos de Uso", href: "#" },
+    { name: "Política de Privacidade", href: "#" },
+    { name: "Reclamações", href: "#" },
+    { name: "Parceiros", href: "#" },
   ],
   help: [
-    { name: "Contact", href: "#" },
+    { name: "Contato", href: "#" },
     { name: "Como comprar na SuppleSeller", href: "#" },
-    { name: "FAQ", href: "#" },
+    { name: "Perguntas Frequentes", href: "#" },
   ],
 };
 
@@ -172,7 +173,7 @@ export const validateCreditCard = (input: string) => {
     return {
       isValid: false,
       cardType: 'unknown',
-      error: 'Invalid card number format'
+      error: 'Formato de número de cartão inválido'
     };
   }
 
@@ -181,7 +182,7 @@ export const validateCreditCard = (input: string) => {
     return {
       isValid: false,
       cardType: 'unknown',
-      error: 'Invalid card number (Luhn check failed)'
+      error: 'Número de cartão inválido (falha na verificação de Luhn)'
     };
   }
 

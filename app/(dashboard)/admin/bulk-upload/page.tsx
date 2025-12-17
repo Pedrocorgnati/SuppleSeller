@@ -62,7 +62,7 @@ const BulkUploadPage = () => {
         setFile(droppedFile);
         setUploadResult(null);
       } else {
-        toast.error("Please upload a CSV file");
+        toast.error("Envie um arquivo CSV");
       }
     }
   };
@@ -77,14 +77,14 @@ const BulkUploadPage = () => {
         setFile(selectedFile);
         setUploadResult(null);
       } else {
-        toast.error("Please upload a CSV file");
+        toast.error("Envie um arquivo CSV");
       }
     }
   };
 
   const handleUpload = async () => {
     if (!file) {
-      toast.error("Please select a CSV file first");
+      toast.error("Selecione um arquivo CSV primeiro");
       return;
     }
 
@@ -105,13 +105,13 @@ const BulkUploadPage = () => {
 
       const successPayload = {
         success: true,
-        message: data?.message || "Products uploaded successfully! (mocked)",
+        message: data?.message || "Produtos enviados com sucesso! (simulado)",
         details: data?.details,
       };
 
       const failurePayload = {
         success: false,
-        message: data?.error || "Upload failed",
+        message: data?.error || "Falha no upload",
         details: data?.details,
       };
 
@@ -130,9 +130,9 @@ const BulkUploadPage = () => {
       console.error("Upload error:", error);
       setUploadResult({
         success: false,
-        message: "Network error occurred during upload",
+        message: "Ocorreu um erro de rede durante o upload",
       });
-      toast.error("Network error occurred");
+      toast.error("Ocorreu um erro de rede");
     } finally {
       setUploading(false);
     }
@@ -152,28 +152,28 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
     a.click();
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
-    toast.success("Template downloaded!");
+    toast.success("Modelo baixado!");
   };
 
   return (
     <div className="flex xl:flex-row flex-col justify-start items-start">
       <DashboardSidebar />
       <div className="w-full xl:p-14 p-4">
-        <h1 className="text-4xl font-bold mb-8">Bulk Upload Products</h1>
+        <h1 className="text-4xl font-bold mb-8">Upload em lote de produtos</h1>
 
         {/* Instructions */}
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
           <h2 className="text-lg font-semibold mb-2 text-blue-800">
-            📋 Instructions
+            📋 Instruções
           </h2>
           <ul className="list-disc list-inside space-y-1 text-sm text-blue-700">
-            <li>Download the CSV template below</li>
+            <li>Baixe o modelo CSV abaixo</li>
             <li>
-              Fill in your product data (title, price, manufacturer, stock,
-              image URL, description, slug, categoryId)
+              Preencha os dados do produto (título, preço, fabricante, estoque,
+              URL da imagem, descrição, slug, categoryId)
             </li>
-            <li>Upload the completed CSV file</li>
-            <li>Maximum file size: 5MB</li>
+            <li>Envie o arquivo CSV preenchido</li>
+            <li>Tamanho máximo do arquivo: 5MB</li>
           </ul>
         </div>
 
@@ -183,7 +183,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
             onClick={downloadTemplate}
             className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
           >
-            <FaDownload /> Download CSV Template
+            <FaDownload /> Baixar modelo CSV
           </button>
         </div>
 
@@ -204,10 +204,10 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
             <p className="text-lg mb-2">
               {file ? (
                 <span className="font-semibold text-blue-600">
-                  Selected: {file.name} ({(file.size / 1024).toFixed(2)} KB)
+                  Selecionado: {file.name} ({(file.size / 1024).toFixed(2)} KB)
                 </span>
               ) : (
-                "Drag and drop CSV file here, or click to select"
+                "Arraste e solte o arquivo CSV aqui ou clique para selecionar"
               )}
             </p>
             <input
@@ -222,7 +222,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
               htmlFor="file-upload"
               className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded cursor-pointer transition-colors"
             >
-              Select CSV File
+              Selecionar arquivo CSV
             </label>
           </div>
         </div>
@@ -261,10 +261,10 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  Uploading...
+                  Enviando...
                 </span>
               ) : (
-                "Upload Products"
+                "Enviar produtos"
               )}
             </button>
           </div>
@@ -292,8 +292,8 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
                   }`}
                 >
                   {uploadResult.success
-                    ? "✅ Upload Successful!"
-                    : "❌ Upload Failed"}
+                    ? "✅ Upload bem-sucedido!"
+                    : "❌ Falha no upload"}
                 </h3>
                 <p
                   className={`mb-3 ${
@@ -305,25 +305,25 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
 
                 {uploadResult.details && (
                   <div className="bg-white rounded p-4 space-y-2">
-                    <p className="font-semibold">Upload Statistics:</p>
+                    <p className="font-semibold">Estatísticas do upload:</p>
                     <div className="grid grid-cols-3 gap-4">
                       <div className="text-center">
                         <p className="text-2xl font-bold text-blue-600">
                           {uploadResult.details.processed}
                         </p>
-                        <p className="text-sm text-gray-600">Processed</p>
+                        <p className="text-sm text-gray-600">Processados</p>
                       </div>
                       <div className="text-center">
                         <p className="text-2xl font-bold text-green-600">
                           {uploadResult.details.successful}
                         </p>
-                        <p className="text-sm text-gray-600">Successful</p>
+                        <p className="text-sm text-gray-600">Com sucesso</p>
                       </div>
                       <div className="text-center">
                         <p className="text-2xl font-bold text-red-600">
                           {uploadResult.details.failed}
                         </p>
-                        <p className="text-sm text-gray-600">Failed</p>
+                        <p className="text-sm text-gray-600">Falhas</p>
                       </div>
                     </div>
 
@@ -331,7 +331,7 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
                       uploadResult.details.errors.length > 0 && (
                         <div className="mt-4">
                           <p className="font-semibold text-red-700 mb-2">
-                            Errors:
+                            Erros:
                           </p>
                           <ul className="list-disc list-inside space-y-1 text-sm text-red-600 max-h-40 overflow-y-auto">
                             {uploadResult.details.errors.map((error, index) => (
@@ -349,22 +349,22 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
 
         {/* CSV Format Guide */}
         <div className="mt-8 bg-gray-50 rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4">📝 CSV Format Guide</h2>
+          <h2 className="text-2xl font-bold mb-4">📝 Guia de formato CSV</h2>
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white border border-gray-300 text-sm">
               <thead>
                 <tr className="bg-gray-100">
                   <th className="border border-gray-300 px-4 py-2 text-left">
-                    Column
+                    Coluna
                   </th>
                   <th className="border border-gray-300 px-4 py-2 text-left">
-                    Required
+                    Obrigatório
                   </th>
                   <th className="border border-gray-300 px-4 py-2 text-left">
-                    Type
+                    Tipo
                   </th>
                   <th className="border border-gray-300 px-4 py-2 text-left">
-                    Description
+                    Descrição
                   </th>
                 </tr>
               </thead>
@@ -373,80 +373,80 @@ Another Product,149.99,Another Manufacturer,5,https://example.com/image2.jpg,Ano
                   <td className="border border-gray-300 px-4 py-2 font-mono">
                     title
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                  <td className="border border-gray-300 px-4 py-2">String</td>
+                  <td className="border border-gray-300 px-4 py-2">✅ Sim</td>
+                  <td className="border border-gray-300 px-4 py-2">Texto</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Product name
+                    Nome do produto
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2 font-mono">
                     price
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                  <td className="border border-gray-300 px-4 py-2">Number</td>
+                  <td className="border border-gray-300 px-4 py-2">✅ Sim</td>
+                  <td className="border border-gray-300 px-4 py-2">Número</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Product price (e.g., 99.99)
+                    Preço do produto (ex.: 99.99)
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2 font-mono">
                     manufacturer
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                  <td className="border border-gray-300 px-4 py-2">String</td>
+                  <td className="border border-gray-300 px-4 py-2">✅ Sim</td>
+                  <td className="border border-gray-300 px-4 py-2">Texto</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Manufacturer/Brand name
+                    Nome do fabricante/marca
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2 font-mono">
                     inStock
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">❌ No</td>
-                  <td className="border border-gray-300 px-4 py-2">Number</td>
+                  <td className="border border-gray-300 px-4 py-2">❌ Não</td>
+                  <td className="border border-gray-300 px-4 py-2">Número</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Stock quantity (default: 0)
+                    Quantidade em estoque (padrão: 0)
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2 font-mono">
                     mainImage
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">❌ No</td>
+                  <td className="border border-gray-300 px-4 py-2">❌ Não</td>
                   <td className="border border-gray-300 px-4 py-2">URL</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Product image URL
+                    URL da imagem do produto
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2 font-mono">
                     description
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                  <td className="border border-gray-300 px-4 py-2">String</td>
+                  <td className="border border-gray-300 px-4 py-2">✅ Sim</td>
+                  <td className="border border-gray-300 px-4 py-2">Texto</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Product description
+                    Descrição do produto
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2 font-mono">
                     slug
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                  <td className="border border-gray-300 px-4 py-2">String</td>
+                  <td className="border border-gray-300 px-4 py-2">✅ Sim</td>
+                  <td className="border border-gray-300 px-4 py-2">Texto</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    URL-friendly identifier
+                    Identificador amigável para URL
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2 font-mono">
                     categoryId
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
+                  <td className="border border-gray-300 px-4 py-2">✅ Sim</td>
                   <td className="border border-gray-300 px-4 py-2">UUID</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Category ID from database
+                    ID da categoria no banco de dados
                   </td>
                 </tr>
               </tbody>

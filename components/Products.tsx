@@ -73,7 +73,7 @@ const Products = async ({ params, searchParams }: { params: { slug?: string[] },
         ))
       ) : (
         <h3 className="text-3xl mt-5 text-center w-full col-span-full max-[1000px]:text-2xl max-[500px]:text-lg">
-          No products found for specified query
+          Nenhum produto encontrado para a pesquisa informada
         </h3>
       )}
     </div>

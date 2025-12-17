@@ -30,20 +30,20 @@ const RegisterPage = () => {
     const confirmPassword = e.target[4].value;
 
     if (!isValidEmail(email)) {
-      setError("Email is invalid");
-      toast.error("Email is invalid");
+      setError("Email inválido");
+      toast.error("Email inválido");
       return;
     }
 
     if (!password || password.length < 8) {
-      setError("Password must be 8 characters long");
-      toast.error("Password must be 8 characters long");
+      setError("A senha deve ter pelo menos 8 caracteres");
+      toast.error("A senha deve ter pelo menos 8 caracteres");
       return;
     }
 
     if (confirmPassword !== password) {
-      setError("Passwords are not equal");
-      toast.error("Passwords are not equal");
+      setError("As senhas não são iguais");
+      toast.error("As senhas não são iguais");
       return;
     }
 
@@ -64,7 +64,7 @@ const RegisterPage = () => {
 
       if (res.ok) {
         setError("");
-        toast.success("Registration successful");
+        toast.success("Cadastro realizado com sucesso");
         router.push("/login");
       } else {
         // Handle different types of errors
@@ -78,27 +78,27 @@ const RegisterPage = () => {
           setError(data.error);
           toast.error(data.error);
         } else {
-          setError("Registration failed");
-          toast.error("Registration failed");
+          setError("Falha no cadastro");
+          toast.error("Falha no cadastro");
         }
       }
     } catch (error) {
-      toast.error("Error, try again");
-      setError("Error, try again");
+      toast.error("Erro, tente novamente");
+      setError("Erro, tente novamente");
       console.log(error);
     }
   };
 
   if (sessionStatus === "loading") {
-    return <h1>Loading...</h1>;
+    return <h1>Carregando...</h1>;
   }
   return (
     <div className="bg-white">
-      <SectionTitle title="Register" path="Home | Register" />
+      <SectionTitle title="Registrar" path="Início | Registrar" />
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8 bg-white">
         <div className="flex justify-center flex-col items-center">
           <h2 className="mt-6 text-center text-2xl leading-9 tracking-tight text-gray-900">
-            Sign up on our website
+            Cadastre-se em nosso site
           </h2>
         </div>
 
@@ -110,7 +110,7 @@ const RegisterPage = () => {
                   htmlFor="name"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Name
+                  Nome
                 </label>
                 <div className="mt-2">
                   <input
@@ -128,7 +128,7 @@ const RegisterPage = () => {
                   htmlFor="lastname"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Lastname
+                  Sobrenome
                 </label>
                 <div className="mt-2">
                   <input
@@ -146,7 +146,7 @@ const RegisterPage = () => {
                   htmlFor="email"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Email address
+                  Endereço de email
                 </label>
                 <div className="mt-2">
                   <input
@@ -165,7 +165,7 @@ const RegisterPage = () => {
                   htmlFor="password"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Password
+                  Senha
                 </label>
                 <div className="mt-2">
                   <input
@@ -184,7 +184,7 @@ const RegisterPage = () => {
                   htmlFor="confirmpassword"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Confirm password
+                  Confirmar senha
                 </label>
                 <div className="mt-2">
                   <input
@@ -210,7 +210,7 @@ const RegisterPage = () => {
                     htmlFor="remember-me"
                     className="ml-3 block text-sm leading-6 text-gray-900"
                   >
-                    Accept our terms and privacy policy
+                    Aceito os termos e a política de privacidade
                   </label>
                 </div>
               </div>
@@ -218,7 +218,7 @@ const RegisterPage = () => {
               <div>
                 <CustomButton
                   buttonType="submit"
-                  text="Sign up"
+                  text="Registrar"
                   paddingX={3}
                   paddingY={1.5}
                   customWidth="full"

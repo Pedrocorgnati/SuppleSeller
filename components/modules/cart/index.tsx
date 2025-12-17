@@ -16,14 +16,14 @@ export const CartModule = () => {
   const handleRemoveItem = (id: string) => {
     removeFromCart(id);
     calculateTotals();
-    toast.success("Product removed from the cart");
+    toast.success("Produto removido do carrinho");
   };
   return (
 
     <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
       <section aria-labelledby="cart-heading" className="lg:col-span-7">
         <h2 id="cart-heading" className="sr-only">
-          Items in your shopping cart
+          Itens no seu carrinho de compras
         </h2>
 
         <ul
@@ -74,7 +74,7 @@ export const CartModule = () => {
                         type="button"
                         className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500"
                       >
-                        <span className="sr-only">Remove</span>
+                        <span className="sr-only">Remover</span>
                         <FaXmark className="h-5 w-5" aria-hidden="true" />
                       </button>
                     </div>
@@ -94,7 +94,7 @@ export const CartModule = () => {
                     />
                   )}
 
-                  <span>{1 ? "In stock" : `Ships in 3 days`}</span>
+                  <span>{1 ? "Em estoque" : `Envia em 3 dias`}</span>
                 </p>
               </div>
             </li>
@@ -106,13 +106,13 @@ export const CartModule = () => {
       <section
         aria-labelledby="summary-heading"
         className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
-      >
-        <h2
-          id="summary-heading"
-          className="text-lg font-medium text-gray-900"
         >
-          Order summary
-        </h2>
+          <h2
+            id="summary-heading"
+            className="text-lg font-medium text-gray-900"
+          >
+          Resumo do pedido
+          </h2>
 
         <dl className="mt-6 space-y-4">
           <div className="flex items-center justify-between">
@@ -123,13 +123,13 @@ export const CartModule = () => {
           </div>
           <div className="flex items-center justify-between border-t border-gray-200 pt-4">
             <dt className="flex items-center text-sm text-gray-600">
-              <span>Shipping estimate</span>
+              <span>Estimativa de envio</span>
               <a
                 href="#"
                 className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">
-                  Learn more about how shipping is calculated
+                  Saiba mais sobre como o frete é calculado
                 </span>
                 <FaCircleQuestion
                   className="h-5 w-5"
@@ -141,13 +141,13 @@ export const CartModule = () => {
           </div>
           <div className="flex items-center justify-between border-t border-gray-200 pt-4">
             <dt className="flex text-sm text-gray-600">
-              <span>Tax estimate</span>
+              <span>Estimativa de imposto</span>
               <a
                 href="#"
                 className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">
-                  Learn more about how tax is calculated
+                  Saiba mais sobre como o imposto é calculado
                 </span>
                 <FaCircleQuestion
                   className="h-5 w-5"
@@ -161,7 +161,7 @@ export const CartModule = () => {
           </div>
           <div className="flex items-center justify-between border-t border-gray-200 pt-4">
             <dt className="text-base font-medium text-gray-900">
-              Order total
+              Total do pedido
             </dt>
             <dd className="text-base font-medium text-gray-900">
               ${total === 0 ? 0 : Math.round(total + total / 5 + 5)}
@@ -174,7 +174,7 @@ export const CartModule = () => {
               href="/checkout"
               className="block flex justify-center items-center w-full uppercase bg-white px-4 py-3 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
             >
-              <span>Checkout</span>
+              <span>Finalizar compra</span>
             </Link>
           </div>
         )}

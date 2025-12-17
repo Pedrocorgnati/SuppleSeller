@@ -72,12 +72,12 @@ const BulkUploadHistory = () => {
         const data = await response.json();
         setBatches(data.batches || []);
       } else {
-        setError("Failed to load batch history, showing mock data");
+        setError("Falha ao carregar o histórico de upload, exibindo dados de exemplo");
         setBatches(mockBatches);
       }
     } catch (err) {
       console.error("Error fetching batch history:", err);
-      setError("Network error occurred, showing mock data");
+      setError("Ocorreu um erro de rede, exibindo dados de exemplo");
       setBatches(mockBatches);
     } finally {
       setLoading(false);
@@ -121,19 +121,19 @@ const BulkUploadHistory = () => {
       if (response?.ok) {
         toast.success(
           deleteProducts
-            ? "Batch and products deleted successfully!"
-            : "Batch deleted successfully (products kept)"
+            ? "Lote e produtos excluídos com sucesso!"
+            : "Lote excluído com sucesso (produtos mantidos)"
         );
         // Refresh list
         await fetchBatchHistory();
       } else {
         // If mock / offline, optimistically remove the batch locally
         setBatches((prev) => prev.filter((b) => b.id !== batchToDelete.id));
-        toast.error(data?.error || `Failed to delete batch (offline fallback)`);
+        toast.error(data?.error || `Falha ao excluir lote (alternativa offline)`);
       }
     } catch (err) {
       console.error("Error deleting batch:", err);
-      toast.error("Network error occurred");
+      toast.error("Ocorreu um erro de rede");
     } finally {
       setDeletingBatchId(null);
       setBatchToDelete(null);
@@ -165,7 +165,7 @@ const BulkUploadHistory = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleString("id-ID", {
+    return date.toLocaleString("pt-BR", {
       year: "numeric",
       month: "short",
       day: "numeric",
@@ -194,14 +194,14 @@ const BulkUploadHistory = () => {
     return (
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center text-gray-500">
         <FaFileAlt className="text-4xl mx-auto mb-2 text-gray-400" />
-        <p>No upload history yet</p>
+        <p>Nenhum histórico de upload ainda</p>
       </div>
     );
   }
 
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl font-bold mb-4">📜 Upload History</h2>
+      <h2 className="text-2xl font-bold mb-4">📜 Histórico de uploads</h2>
 
       {/* Delete Confirmation Modal */}
       {showDeleteModal && batchToDelete && (
@@ -209,11 +209,11 @@ const BulkUploadHistory = () => {
           <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-xl">
             <div className="flex items-center gap-3 mb-4">
               <FaExclamationTriangle className="text-yellow-500 text-3xl" />
-              <h3 className="text-xl font-bold">Delete Batch Upload</h3>
+              <h3 className="text-xl font-bold">Excluir upload em lote</h3>
             </div>
 
             <p className="text-gray-700 mb-4">
-              Are you sure you want to delete{" "}
+              Tem certeza de que deseja excluir{" "}
               <strong>{batchToDelete.fileName}</strong>?
             </p>
 
@@ -227,12 +227,12 @@ const BulkUploadHistory = () => {
                 />
                 <div className="text-sm">
                   <span className="font-semibold text-yellow-800">
-                    Also delete all products created from this batch
+                    Também excluir todos os produtos criados a partir deste lote
                   </span>
                   <p className="text-yellow-700 text-xs mt-1">
-                    Warning: This will permanently delete all products that were
-                    created from this CSV upload. Products that are in orders
-                    cannot be deleted.
+                    Atenção: Isso excluirá permanentemente todos os produtos criados
+                    a partir deste upload CSV. Produtos que já estão em pedidos
+                    não podem ser excluídos.
                   </p>
                 </div>
               </label>
@@ -243,15 +243,15 @@ const BulkUploadHistory = () => {
                 onClick={handleDeleteCancel}
                 className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
               >
-                Cancel
+                Cancelar
               </button>
               <button
                 onClick={handleDeleteConfirm}
                 className="flex-1 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors font-semibold"
               >
                 {deleteProducts
-                  ? "Delete Batch & Products"
-                  : "Delete Batch Only"}
+                  ? "Excluir lote e produtos"
+                  : "Excluir apenas o lote"}
               </button>
             </div>
           </div>
@@ -269,7 +269,7 @@ const BulkUploadHistory = () => {
               <div>
                 <h3 className="font-semibold text-lg">{batch.fileName}</h3>
                 <p className="text-sm text-gray-500">
-                  Uploaded by {batch.uploadedBy} •{" "}
+                  Enviado por {batch.uploadedBy} •{" "}
                   {formatDate(batch.uploadedAt)}
                 </p>
               </div>
@@ -291,7 +291,7 @@ const BulkUploadHistory = () => {
                 onClick={() => handleDeleteClick(batch.id, batch.fileName)}
                 disabled={deletingBatchId === batch.id}
                 className="p-2 text-red-500 hover:bg-red-50 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                title="Delete batch"
+                title="Excluir lote"
               >
                 {deletingBatchId === batch.id ? (
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-red-500"></div>
@@ -313,13 +313,13 @@ const BulkUploadHistory = () => {
               <p className="text-2xl font-bold text-green-600">
                 {batch.successfulRecords}
               </p>
-              <p className="text-xs text-gray-500">Success</p>
+              <p className="text-xs text-gray-500">Sucesso</p>
             </div>
             <div className="bg-red-50 rounded p-3 text-center">
               <p className="text-2xl font-bold text-red-600">
                 {batch.failedRecords}
               </p>
-              <p className="text-xs text-gray-500">Failed</p>
+              <p className="text-xs text-gray-500">Falhou</p>
             </div>
             <div className="bg-blue-50 rounded p-3 text-center">
               <p className="text-2xl font-bold text-blue-600">
@@ -330,14 +330,14 @@ const BulkUploadHistory = () => {
                   : 0}
                 %
               </p>
-              <p className="text-xs text-gray-500">Success Rate</p>
+              <p className="text-xs text-gray-500">Taxa de sucesso</p>
             </div>
           </div>
 
           {batch.errors && batch.errors.length > 0 && (
             <div className="bg-red-50 border border-red-200 rounded p-3">
               <p className="font-semibold text-red-700 text-sm mb-2">
-                Errors ({batch.errors.length}):
+                Erros ({batch.errors.length}):
               </p>
               <ul className="list-disc list-inside space-y-1 text-xs text-red-600 max-h-24 overflow-y-auto">
                 {batch.errors.slice(0, 5).map((error, index) => (
@@ -345,7 +345,7 @@ const BulkUploadHistory = () => {
                 ))}
                 {batch.errors.length > 5 && (
                   <li className="text-red-500 font-semibold">
-                    ... and {batch.errors.length - 5} more errors
+                    ... e mais {batch.errors.length - 5} erros
                   </li>
                 )}
               </ul>

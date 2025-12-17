@@ -31,7 +31,7 @@ export default function NewMerchantPage() {
     e.preventDefault();
     
     if (!formData.name.trim()) {
-      toast.error("Merchant name is required");
+      toast.error("O nome do lojista é obrigatório");
       return;
     }
     
@@ -45,15 +45,15 @@ export default function NewMerchantPage() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to create merchant");
+        throw new Error("Falha ao criar lojista");
       }
 
       const data = await response.json();
-      toast.success("Merchant created successfully");
+      toast.success("Lojista criado com sucesso");
       router.push(`/admin/merchant/${data.id}`);
     } catch (error) {
-      console.error("Error creating merchant:", error);
-      toast.error("Failed to create merchant");
+      console.error("Erro ao criar lojista:", error);
+      toast.error("Falha ao criar lojista");
     } finally {
       setIsSubmitting(false);
     }
@@ -64,19 +64,19 @@ export default function NewMerchantPage() {
       <DashboardSidebar />
       <div className="flex-1 p-10 overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">Add New Merchant</h1>
+          <h1 className="text-3xl font-bold">Adicionar novo lojista</h1>
           <Link
             href="/admin/merchant"
             className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition"
           >
-            Cancel
+            Cancelar
           </Link>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6">
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Name</label>
+              <label className="block text-gray-700 font-medium mb-2">Nome</label>
               <input
                 type="text"
                 name="name"
@@ -84,7 +84,7 @@ export default function NewMerchantPage() {
                 onChange={handleInputChange}
                 required
                 className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Merchant name"
+                placeholder="Nome do lojista"
               />
             </div>
             <div>
@@ -95,18 +95,18 @@ export default function NewMerchantPage() {
                 value={formData.email}
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="email@example.com"
+                placeholder="email@exemplo.com"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Phone</label>
+              <label className="block text-gray-700 font-medium mb-2">Telefone</label>
               <input
                 type="text"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Phone number"
+                placeholder="Número de telefone"
               />
             </div>
             <div>
@@ -117,29 +117,29 @@ export default function NewMerchantPage() {
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
               >
-                <option value="ACTIVE">Active</option>
-                <option value="INACTIVE">Inactive</option>
+                <option value="ACTIVE">Ativo</option>
+                <option value="INACTIVE">Inativo</option>
               </select>
             </div>
             <div className="md:col-span-2">
-              <label className="block text-gray-700 font-medium mb-2">Address</label>
+              <label className="block text-gray-700 font-medium mb-2">Endereço</label>
               <input
                 type="text"
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Merchant address"
+                placeholder="Endereço do lojista"
               />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-gray-700 font-medium mb-2">Description</label>
+              <label className="block text-gray-700 font-medium mb-2">Descrição</label>
               <textarea
                 name="description"
                 value={formData.description}
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300 h-32"
-                placeholder="Enter merchant description"
+                placeholder="Insira a descrição do lojista"
               ></textarea>
             </div>
             <div className="md:col-span-2">
@@ -150,7 +150,7 @@ export default function NewMerchantPage() {
                   isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                 }`}
               >
-                {isSubmitting ? "Creating..." : "Create Merchant"}
+                {isSubmitting ? "Criando..." : "Criar lojista"}
               </button>
             </div>
           </form>

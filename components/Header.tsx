@@ -31,7 +31,7 @@ const Header = () => {
 
   const handleLogout = () => {
     setTimeout(() => signOut(), 1000);
-    toast.success("Logout successful!");
+    toast.success("Logout realizado com sucesso!");
   };
 
   // getting all wishlist items by user id
@@ -77,7 +77,7 @@ const Header = () => {
       {pathname.startsWith("/admin") === false && (
         <div className="h-32 bg-white flex items-center justify-between px-16 max-[1320px]:px-16 max-md:px-6 max-lg:flex-col max-lg:gap-y-7 max-lg:justify-center max-lg:h-60 max-w-screen-2xl mx-auto">
           <Link href="/" className="max-w-[50px] max-h-[50px]">
-            <Image src="/logo v1 svg.svg" width={50} height={50} alt="Suppleseller logo" className="relative right-5 max-[1023px]:w-56" priority />
+            <Image src="/logo v1 svg.svg" width={50} height={50} alt="Logo da Suppleseller" className="relative right-5 max-[1023px]:w-56" priority />
           </Link>
           <SearchInput />
           <div className="flex gap-x-10 items-center">
@@ -94,7 +94,7 @@ const Header = () => {
               src="/logo v1.png"
               width={130}
               height={130}
-              alt="singitronic logo"
+              alt="Logo da Suppleseller"
               className="w-56 h-auto"
             />
           </Link>
@@ -104,7 +104,7 @@ const Header = () => {
               <div tabIndex={0} role="button" className="w-10">
                 <Image
                   src="/randomuser.jpg"
-                  alt="random profile photo"
+                  alt="foto de perfil aleatória"
                   width={30}
                   height={30}
                   className="w-full h-full rounded-full"
@@ -115,13 +115,13 @@ const Header = () => {
                 className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link href="/admin">Dashboard</Link>
+                  <Link href="/admin">Painel</Link>
                 </li>
                 <li>
-                  <a>Profile</a>
+                  <a>Perfil</a>
                 </li>
                 <li onClick={handleLogout}>
-                  <a href="#">Logout</a>
+                  <a href="#">Sair</a>
                 </li>
               </ul>
             </div>

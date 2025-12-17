@@ -27,7 +27,7 @@ const ProductTabs = ({ product }: { product: Product }) => {
           }`}
           onClick={() => setCurrentProductTab(0)}
         >
-          Description
+          Descrição
         </a>
         <a
           role="tab"
@@ -36,7 +36,7 @@ const ProductTabs = ({ product }: { product: Product }) => {
           }`}
           onClick={() => setCurrentProductTab(1)}
         >
-          Additional info
+          Informações adicionais
         </a>
       </div>
       <div className="pt-5">
@@ -55,21 +55,21 @@ const ProductTabs = ({ product }: { product: Product }) => {
               <tbody>
                 {/* row 1 */}
                 <tr>
-                  <th>Manufacturer:</th>
+                  <th>Fabricante:</th>
                   <td>{sanitize(product?.manufacturer)}</td>
                 </tr>
                 {/* row 2 */}
                 <tr>
-                  <th>Category:</th>
+                  <th>Categoria:</th>
                   <td>
                     {product?.category?.name
                       ? sanitize(formatCategoryName(product?.category?.name))
-                      : "No category"}
+                      : "Sem categoria"}
                   </td>
                 </tr>
                 {/* row 3 */}
                 <tr>
-                  <th>Color:</th>
+                  <th>Cor:</th>
                   <td>Silver, LightSlateGray, Blue</td>
                 </tr>
               </tbody>

@@ -35,18 +35,18 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
         if (response.status !== 204) {
           if (response.status === 400) {
             toast.error(
-              "Cannot delete the product because of foreign key constraint"
+              "Não é possível excluir o produto devido a restrições de chave estrangeira"
             );
           } else {
-            throw Error("There was an error while deleting product");
+            throw Error("Ocorreu um erro ao excluir o produto");
           }
         } else {
-          toast.success("Product deleted successfully");
+          toast.success("Produto excluído com sucesso");
           router.push("/admin/products");
         }
       })
       .catch((error) => {
-        toast.error("There was an error while deleting product");
+        toast.error("Ocorreu um erro ao excluir o produto");
       });
   };
 
@@ -59,7 +59,7 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
       product?.manufacturer === "" ||
       product?.description === ""
     ) {
-      toast.error("You need to enter values in input fields");
+      toast.error("Preencha os campos obrigatórios");
       return;
     }
 
@@ -68,16 +68,16 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
 
       if (response.status === 200) {
         await response.json();
-        toast.success("Product successfully updated");
+        toast.success("Produto atualizado com sucesso");
       } else {
         const errorData = await response.json();
         toast.error(
-          errorData.error || "There was an error while updating product"
+          errorData.error || "Ocorreu um erro ao atualizar o produto"
         );
       }
     } catch (error) {
-      console.error("Error updating product:", error);
-      toast.error("There was an error while updating product");
+      console.error("Erro ao atualizar produto:", error);
+      toast.error("Ocorreu um erro ao atualizar o produto");
     }
   };
 
@@ -95,11 +95,11 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
       if (response.ok) {
         const data = await response.json();
       } else {
-        toast.error("File upload unsuccessful.");
+        toast.error("Falha no upload do arquivo.");
       }
     } catch (error) {
-      console.error("There was an error while during request sending:", error);
-      toast.error("There was an error during request sending");
+      console.error("Houve um erro ao enviar a requisição:", error);
+      toast.error("Houve um erro durante o envio da requisição");
     }
   };
 
@@ -142,13 +142,13 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
     <div className="bg-white flex justify-start max-w-screen-2xl mx-auto xl:h-full max-xl:flex-col max-xl:gap-y-5">
       <DashboardSidebar />
       <div className="flex flex-col gap-y-7 xl:ml-5 w-full max-xl:px-5">
-        <h1 className="text-3xl font-semibold">Product details</h1>
+        <h1 className="text-3xl font-semibold">Detalhes do produto</h1>
         {/* Product name input div - start */}
         
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Product name:</span>
+              <span className="label-text">Nome do produto:</span>
             </div>
             <input
               type="text"
@@ -166,7 +166,7 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Product price:</span>
+              <span className="label-text">Preço do produto:</span>
             </div>
             <input
               type="text"
@@ -183,7 +183,7 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Manufacturer:</span>
+              <span className="label-text">Fabricante:</span>
             </div>
             <input
               type="text"
@@ -224,7 +224,7 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Is product in stock?</span>
+              <span className="label-text">Produto em estoque?</span>
             </div>
             <select
               className="select select-bordered"
@@ -233,8 +233,8 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
                 setProduct({ ...product!, inStock: Number(e.target.value) });
               }}
             >
-              <option value={1}>Yes</option>
-              <option value={0}>No</option>
+              <option value={1}>Sim</option>
+              <option value={0}>Não</option>
             </select>
           </label>
         </div>
@@ -243,7 +243,7 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Category:</span>
+              <span className="label-text">Categoria:</span>
             </div>
             <select
               className="select select-bordered"
@@ -299,7 +299,7 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
               <Image
                 src={`/${image.image}`}
                 key={nanoid()}
-                alt="product image"
+                alt="imagem do produto"
                 width={100}
                 height={100}
                 className="w-auto h-auto"
@@ -311,7 +311,7 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
         <div>
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Product description:</span>
+              <span className="label-text">Descrição do produto:</span>
             </div>
             <textarea
               className="textarea textarea-bordered h-24"
@@ -327,23 +327,23 @@ const DashboardProductDetails = ({ params }: DashboardProductDetailsProps) => {
         <div className="flex gap-x-2 max-sm:flex-col">
           <button
             type="button"
-            onClick={updateProduct}
-            className="uppercase bg-blue-500 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2"
-          >
-            Update product
+          onClick={updateProduct}
+          className="uppercase bg-blue-500 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2"
+        >
+            Atualizar produto
           </button>
           <button
             type="button"
             className="uppercase bg-red-600 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2"
             onClick={deleteProduct}
           >
-            Delete product
+            Excluir produto
           </button>
         </div>
         {/* Action buttons div - end */}
         <p className="text-xl max-sm:text-lg text-error">
-          To delete the product you first need to delete all its records in
-          orders (customer_order_product table).
+          Para excluir o produto é necessário remover todos os registros
+          relacionados em pedidos (tabela customer_order_product).
         </p>
       </div>
     </div>

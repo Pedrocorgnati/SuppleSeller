@@ -16,11 +16,11 @@ const formatTimeAgo = (date: string) => {
   const past = new Date(date).getTime();
   const diffInSeconds = Math.floor((now - past) / 1000);
 
-  if (diffInSeconds < 60) return 'Just now';
-  if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes ago`;
-  if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hours ago`;
-  if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)} days ago`;
-  return new Intl.DateTimeFormat('en-US', { timeZone: 'UTC' }).format(new Date(date));
+  if (diffInSeconds < 60) return 'Agora mesmo';
+  if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minuto(s) atrás`;
+  if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hora(s) atrás`;
+  if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)} dia(s) atrás`;
+  return new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' }).format(new Date(date));
 };
 
 interface NotificationCardProps {
@@ -70,10 +70,10 @@ const getPriorityBadge = (priority: NotificationPriority) => {
   };
 
   const priorityLabels = {
-    [NotificationPriority.LOW]: 'Low',
+    [NotificationPriority.LOW]: 'Baixa',
     [NotificationPriority.NORMAL]: 'Normal',
-    [NotificationPriority.HIGH]: 'High',
-    [NotificationPriority.URGENT]: 'Urgent'
+    [NotificationPriority.HIGH]: 'Alta',
+    [NotificationPriority.URGENT]: 'Urgente'
   };
 
   return (
@@ -105,17 +105,17 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
       ${notification.isRead ? 'bg-white border-gray-200' : 'bg-blue-50 border-blue-200 shadow-sm'}
       ${isSelected ? 'ring-2 ring-blue-500 border-blue-500' : ''}
     `}>
-      <div className="flex items-start space-x-3">
-        {/* Selection Checkbox */}
-        <div className="flex items-center pt-1">
-          <input
-            type="checkbox"
-            checked={isSelected}
-            onChange={() => onToggleSelect(notification.id)}
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
-            aria-label={`Select notification: ${notification.title}`}
-          />
-        </div>
+        <div className="flex items-start space-x-3">
+          {/* Selection Checkbox */}
+          <div className="flex items-center pt-1">
+            <input
+              type="checkbox"
+              checked={isSelected}
+              onChange={() => onToggleSelect(notification.id)}
+              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              aria-label={`Selecionar notificação: ${notification.title}`}
+            />
+          </div>
 
         {/* Content */}
         <div className="flex-1 min-w-0">
@@ -130,7 +130,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
                 {notification.title}
               </h3>
               {!notification.isRead && (
-                <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-label="Unread notification" />
+                <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-label="Notificação não lida" />
               )}
             </div>
 
@@ -150,7 +150,11 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
             <div className="flex items-center space-x-3">
               {/* Type Badge */}
               <span className={`px-2 py-1 text-xs font-medium rounded-full ${getTypeColor(notification.type)}`}>
-                {notification.type.replace('_', ' ')}
+                {notification.type === NotificationType.ORDER_UPDATE && 'Atualização de pedido'}
+                {notification.type === NotificationType.PAYMENT_STATUS && 'Status de pagamento'}
+                {notification.type === NotificationType.PROMOTION && 'Promoção'}
+                {notification.type === NotificationType.SYSTEM_ALERT && 'Alerta do sistema'}
+                {!Object.values(NotificationType).includes(notification.type) && notification.type.replace('_', ' ')}
               </span>
 
               {/* Timestamp */}
@@ -168,20 +172,20 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
                 <button
                   onClick={() => onMarkAsRead(notification.id)}
                   className="inline-flex items-center px-2 py-1 text-xs font-medium text-blue-600 bg-blue-100 rounded hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 transition-colors"
-                  aria-label="Mark as read"
+                  aria-label="Marcar como lida"
                 >
                   <FaCheck className="w-3 h-3 mr-1" />
-                  Mark Read
+                  Marcar como lida
                 </button>
               )}
 
               <button
                 onClick={() => onDelete(notification.id)}
                 className="inline-flex items-center px-2 py-1 text-xs font-medium text-red-600 bg-red-100 rounded hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 transition-colors"
-                aria-label="Delete notification"
+                aria-label="Excluir notificação"
               >
                 <FaTrash className="w-3 h-3 mr-1" />
-                Delete
+                Excluir
               </button>
             </div>
           </div>

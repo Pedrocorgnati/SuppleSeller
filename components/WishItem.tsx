@@ -36,7 +36,7 @@ const WishItem: React.FC<WishItemProps> = ({
         <button
           onClick={handleRemove}
           className="btn btn-ghost btn-sm text-red-600 hover:text-red-800"
-          aria-label="Remove from wishlist"
+          aria-label="Remover dos favoritos"
         >
           <FaTrash />
         </button>
@@ -60,9 +60,9 @@ const WishItem: React.FC<WishItemProps> = ({
       </td>
       <td>
         {stockAvailabillity > 0 ? (
-          <span className="text-green-600 font-semibold">In Stock</span>
+          <span className="text-green-600 font-semibold">Em estoque</span>
         ) : (
-          <span className="text-red-600 font-semibold">Out of Stock</span>
+          <span className="text-red-600 font-semibold">Sem estoque</span>
         )}
       </td>
       <td>
@@ -70,7 +70,7 @@ const WishItem: React.FC<WishItemProps> = ({
           href={`/products/${slug}`}
           className="btn btn-primary btn-sm"
         >
-          View Product
+          Ver produto
         </Link>
       </td>
     </tr>

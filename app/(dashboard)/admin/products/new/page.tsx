@@ -39,7 +39,7 @@ const AddNewProduct = () => {
       product.description == "" ||
       product.slug === ""
     ) {
-      toast.error("Please enter values in input fields");
+      toast.error("Preencha os campos obrigatórios");
       return;
     }
 
@@ -47,15 +47,15 @@ const AddNewProduct = () => {
       // Sanitize form data before sending to API
       const sanitizedProduct = sanitizeFormData(product);
 
-      console.log("Sending product data:", sanitizedProduct);
+      console.log("Enviando dados do produto:", sanitizedProduct);
 
       // Correct usage of apiClient.post
       const response = await apiClient.post(`/api/products`, sanitizedProduct);
 
       if (response.status === 201) {
         const data = await response.json();
-        console.log("Product created successfully:", data);
-        toast.success("Product added successfully");
+        console.log("Produto criado com sucesso:", data);
+        toast.success("Produto adicionado com sucesso");
         setProduct({
           merchantId: "",
           title: "",
@@ -69,12 +69,12 @@ const AddNewProduct = () => {
         });
       } else {
         const errorData = await response.json();
-        console.error("Failed to create product:", errorData);
-        toast.error(`"Error:" ${errorData.message || "Failed to add product"}`);
+        console.error("Falha ao criar produto:", errorData);
+        toast.error(`"Erro:" ${errorData.message || "Falha ao adicionar produto"}`);
       }
     } catch (error) {
-      console.error("Error adding product:", error);
-      toast.error("Network error. Please try again.");
+      console.error("Erro ao adicionar produto:", error);
+      toast.error("Erro de rede. Tente novamente.");
     }
   };
 
@@ -88,7 +88,7 @@ const AddNewProduct = () => {
         merchantId: prev.merchantId || data?.[0]?.id || "",
       }));
     } catch (e) {
-      toast.error("Failed to load merchants");
+      toast.error("Falha ao carregar lojistas");
     }
   };
 
@@ -105,10 +105,10 @@ const AddNewProduct = () => {
       if (response.ok) {
         const data = await response.json();
       } else {
-        console.error("File upload unsuccessfull");
+        console.error("Falha no upload do arquivo");
       }
     } catch (error) {
-      console.error("Error happend while sending request:", error);
+      console.error("Erro ao enviar requisição:", error);
     }
   };
 
@@ -143,11 +143,11 @@ const AddNewProduct = () => {
     <div className="bg-white flex justify-start max-w-screen-2xl mx-auto xl:h-full max-xl:flex-col max-xl:gap-y-5">
       <DashboardSidebar />
       <div className="flex flex-col gap-y-7 xl:ml-5 max-xl:px-5 w-full">
-        <h1 className="text-3xl font-semibold">Add new product</h1>
+        <h1 className="text-3xl font-semibold">Adicionar novo produto</h1>
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Merchant Info:</span>
+              <span className="label-text">Informações do lojista:</span>
             </div>
             <select
               className="select select-bordered"
@@ -164,7 +164,7 @@ const AddNewProduct = () => {
             </select>
             {merchants.length === 0 && (
               <span className="text-xs text-red-500 mt-1">
-                Please create a merchant first.
+                Crie um lojista primeiro.
               </span>
             )}
           </label>
@@ -173,7 +173,7 @@ const AddNewProduct = () => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Product name:</span>
+              <span className="label-text">Nome do produto:</span>
             </div>
             <input
               type="text"
@@ -189,7 +189,7 @@ const AddNewProduct = () => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Product slug:</span>
+              <span className="label-text">Slug do produto:</span>
             </div>
             <input
               type="text"
@@ -208,7 +208,7 @@ const AddNewProduct = () => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Category:</span>
+              <span className="label-text">Categoria:</span>
             </div>
             <select
               className="select select-bordered"
@@ -230,7 +230,7 @@ const AddNewProduct = () => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Product price:</span>
+              <span className="label-text">Preço do produto:</span>
             </div>
             <input
               type="text"
@@ -245,7 +245,7 @@ const AddNewProduct = () => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Manufacturer:</span>
+              <span className="label-text">Fabricante:</span>
             </div>
             <input
               type="text"
@@ -260,7 +260,7 @@ const AddNewProduct = () => {
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Is product in stock?</span>
+              <span className="label-text">Produto em estoque?</span>
             </div>
             <select
               className="select select-bordered"
@@ -269,8 +269,8 @@ const AddNewProduct = () => {
                 setProduct({ ...product, inStock: Number(e.target.value) })
               }
             >
-              <option value={1}>Yes</option>
-              <option value={0}>No</option>
+              <option value={1}>Sim</option>
+              <option value={0}>Não</option>
             </select>
           </label>
         </div>
@@ -296,7 +296,7 @@ const AddNewProduct = () => {
         <div>
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Product description:</span>
+              <span className="label-text">Descrição do produto:</span>
             </div>
             <textarea
               className="textarea textarea-bordered h-24"
@@ -313,7 +313,7 @@ const AddNewProduct = () => {
             type="button"
             className="uppercase bg-blue-500 px-10 py-5 text-lg border border-black border-gray-300 font-bold text-white shadow-sm hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2"
           >
-            Add product
+            Adicionar produto
           </button>
         </div>
       </div>

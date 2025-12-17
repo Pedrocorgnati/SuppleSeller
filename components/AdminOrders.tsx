@@ -29,7 +29,7 @@ const AdminOrders = () => {
 
   return (
     <div className="xl:ml-5 w-full max-xl:mt-5 ">
-      <h1 className="text-3xl font-semibold text-center mb-5">All orders</h1>
+      <h1 className="text-3xl font-semibold text-center mb-5">Todos os pedidos</h1>
       <div className="overflow-x-auto">
         <table className="table table-md table-pin-cols">
           {/* head */}
@@ -40,11 +40,11 @@ const AdminOrders = () => {
                   <input type="checkbox" className="checkbox" />
                 </label>
               </th>
-              <th>Order ID</th>
-              <th>Name and country</th>
+              <th>ID do pedido</th>
+              <th>Nome e país</th>
               <th>Status</th>
               <th>Subtotal</th>
-              <th>Date</th>
+              <th>Data</th>
               <th></th>
             </tr>
           </thead>
@@ -90,7 +90,7 @@ const AdminOrders = () => {
                       href={`/admin/orders/${order?.id}`}
                       className="btn btn-ghost btn-xs"
                     >
-                      details
+                      detalhes
                     </Link>
                   </th>
                 </tr>
@@ -100,11 +100,11 @@ const AdminOrders = () => {
           <tfoot>
             <tr>
               <th></th>
-              <th>Order ID</th>
-              <th>Name and country</th>
+              <th>ID do pedido</th>
+              <th>Nome e país</th>
               <th>Status</th>
               <th>Subtotal</th>
-              <th>Date</th>
+              <th>Data</th>
               <th></th>
             </tr>
           </tfoot>
